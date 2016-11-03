@@ -80,13 +80,15 @@ public class MediaCodecVideoDecoder {
   private static final int COLOR_QCOM_FORMATYVU420PackedSemiPlanar16m4ka = 0x7FA30C02;
   private static final int COLOR_QCOM_FORMATYVU420PackedSemiPlanar64x32Tile2m8ka = 0x7FA30C03;
   private static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 0x7FA30C04;
+  private static final int OMX_INTEL_COLOR_FormatYUV420PackedSemiPlanar = 0x7FA00E00;
   // Allowable color formats supported by codec - in order of preference.
   private static final List<Integer> supportedColorList = Arrays.asList(
       CodecCapabilities.COLOR_FormatYUV420Planar, CodecCapabilities.COLOR_FormatYUV420SemiPlanar,
       CodecCapabilities.COLOR_QCOM_FormatYUV420SemiPlanar,
       COLOR_QCOM_FORMATYVU420PackedSemiPlanar32m4ka, COLOR_QCOM_FORMATYVU420PackedSemiPlanar16m4ka,
       COLOR_QCOM_FORMATYVU420PackedSemiPlanar64x32Tile2m8ka,
-      COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m);
+      COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m,
+      OMX_INTEL_COLOR_FormatYUV420PackedSemiPlanar);
 
   private int colorFormat;
   private int width;
