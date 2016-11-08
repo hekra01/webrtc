@@ -127,8 +127,10 @@ public class MediaCodecVideoEncoder {
       "OMX.qcom.", Build.VERSION_CODES.KITKAT, BitrateAdjustmentType.NO_ADJUSTMENT);
   private static final MediaCodecProperties exynosH264HwProperties = new MediaCodecProperties(
       "OMX.Exynos.", Build.VERSION_CODES.LOLLIPOP, BitrateAdjustmentType.FRAMERATE_ADJUSTMENT);
+  private static final MediaCodecProperties intelH264HwProperties = new MediaCodecProperties(
+      "OMX.Intel.", Build.VERSION_CODES.LOLLIPOP, BitrateAdjustmentType.FRAMERATE_ADJUSTMENT);
   private static final MediaCodecProperties[] h264HwList =
-      new MediaCodecProperties[] {qcomH264HwProperties, exynosH264HwProperties};
+      new MediaCodecProperties[] {qcomH264HwProperties, exynosH264HwProperties, intelH264HwProperties};
 
   // List of devices with poor H.264 encoder quality.
   // HW H.264 encoder on below devices has poor bitrate control - actual
