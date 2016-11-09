@@ -605,7 +605,6 @@ public class PeerConnectionClient {
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
-      videoCapturerStopped = true;
       videoCapturer.dispose();
       videoCapturer = null;
     }
@@ -1141,13 +1140,13 @@ public class PeerConnectionClient {
 
     @Override
     public void onDataChannel(final DataChannel dc) {
-      Log.d(TAG, "NEW Data channel " + dc.label());
+      Log.d(TAG, "New Data channel " + dc.label());
 
       if (!dataChannelEnabled)
         return;
 
       dc.registerObserver(new DataChannel.Observer() {
-        public void onBufferedAmountChange(long var1){
+        public void onBufferedAmountChange(long previousAmount){
           Log.d(TAG,
                   "Data channel buffered amount changed: " + dc.label() + ": " + dc.state());
         }

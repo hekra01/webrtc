@@ -14,7 +14,6 @@ import org.appspot.apprtc.AppRTCClient.RoomConnectionParameters;
 import org.appspot.apprtc.AppRTCClient.SignalingParameters;
 import org.appspot.apprtc.PeerConnectionClient.PeerConnectionParameters;
 import org.appspot.apprtc.PeerConnectionClient.DataChannelParameters;
-import org.appspot.apprtc.util.LooperExecutor;
 
 import android.app.Activity;
 import android.app.AlertDialog;

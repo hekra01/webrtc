@@ -182,7 +182,6 @@
             android:key="@string/pref_data_protocol_key"
             android:title="@string/pref_data_protocol_title"
             android:inputType="text"
-            android:defaultValue="@string/pref_data_protocol_default"
             android:dialogTitle="@string/pref_data_protocol_dlg" />
 
         <CheckBoxPreference
