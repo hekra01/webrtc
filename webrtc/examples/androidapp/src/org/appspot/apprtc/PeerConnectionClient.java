@@ -188,7 +188,7 @@ public class PeerConnectionClient {
         boolean videoCodecHwAcceleration, int audioStartBitrate, String audioCodec,
         boolean noAudioProcessing, boolean aecDump, boolean useOpenSLES, boolean disableBuiltInAEC,
         boolean disableBuiltInAGC, boolean disableBuiltInNS, boolean enableLevelControl) {
-      this(videoCallEnabled, loopback, tracing, useCamera2, videoWidth, videoHeight, videoFps,
+      this(videoCallEnabled, loopback, tracing, videoWidth, videoHeight, videoFps,
       videoMaxBitrate, videoCodec, videoCodecHwAcceleration, audioStartBitrate,
       audioCodec, noAudioProcessing, aecDump, useOpenSLES, disableBuiltInAEC, disableBuiltInAGC,
       disableBuiltInNS, enableLevelControl, null);
