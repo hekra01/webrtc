@@ -128,7 +128,7 @@ public class MediaCodecVideoEncoder {
   private static final MediaCodecProperties exynosH264HwProperties = new MediaCodecProperties(
       "OMX.Exynos.", Build.VERSION_CODES.LOLLIPOP, BitrateAdjustmentType.FRAMERATE_ADJUSTMENT);
   private static final MediaCodecProperties intelH264HwProperties = new MediaCodecProperties(
-      "OMX.Intel.", Build.VERSION_CODES.LOLLIPOP, BitrateAdjustmentType.FRAMERATE_ADJUSTMENT);
+      "OMX.Intel.", Build.VERSION_CODES.LOLLIPOP, BitrateAdjustmentType.DYNAMIC_ADJUSTMENT);
   private static final MediaCodecProperties[] h264HwList =
       new MediaCodecProperties[] {qcomH264HwProperties, exynosH264HwProperties, intelH264HwProperties};
 
