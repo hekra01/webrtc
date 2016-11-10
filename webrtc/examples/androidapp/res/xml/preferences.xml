@@ -165,6 +165,17 @@
             android:defaultValue="@string/pref_ordered_default" />
 
         <EditTextPreference
+            android:key="@string/pref_data_protocol_key"
+            android:title="@string/pref_data_protocol_title"
+            android:inputType="text"
+            android:dialogTitle="@string/pref_data_protocol_dlg" />
+
+        <CheckBoxPreference
+            android:key="@string/pref_negotiated_key"
+            android:title="@string/pref_negotiated_title"
+            android:defaultValue="@string/pref_negotiated_default" />
+
+        <EditTextPreference
             android:key="@string/pref_max_retransmit_time_ms_key"
             android:title="@string/pref_max_retransmit_time_ms_title"
             android:inputType="number"
@@ -177,17 +188,6 @@
             android:inputType="number"
             android:defaultValue="@string/pref_max_retransmits_default"
             android:dialogTitle="@string/pref_max_retransmits_dlg" />
-
-        <EditTextPreference
-            android:key="@string/pref_data_protocol_key"
-            android:title="@string/pref_data_protocol_title"
-            android:inputType="text"
-            android:dialogTitle="@string/pref_data_protocol_dlg" />
-
-        <CheckBoxPreference
-            android:key="@string/pref_negotiated_key"
-            android:title="@string/pref_negotiated_title"
-            android:defaultValue="@string/pref_negotiated_default" />
 
         <EditTextPreference
             android:key="@string/pref_data_id_key"
