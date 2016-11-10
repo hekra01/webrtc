@@ -94,20 +94,13 @@ public class CallActivity extends Activity implements AppRTCClient.SignalingEven
       "org.appspot.apprtc.SAVE_REMOTE_VIDEO_TO_FILE_HEIGHT";
   public static final String EXTRA_USE_VALUES_FROM_INTENT =
       "org.appspot.apprtc.USE_VALUES_FROM_INTENT";
-  public static final String EXTRA_DATA_CHANNEL_ENABLED =
-          "org.appspot.apprtc.DATA_CHANNEL_ENABLED";
-  public static final String EXTRA_ORDERED =
-          "org.appspot.apprtc.ORDERED";
-  public static final String EXTRA_MAX_RETRANSMITS_MS =
-          "org.appspot.apprtc.MAX_RETRANSMITS_MS";
-  public static final String EXTRA_MAX_RETRANSMITS =
-          "org.appspot.apprtc.MAX_RETRANSMITS";
-  public static final String EXTRA_PROTOCOL =
-          "org.appspot.apprtc.PROTOCOL";
-  public static final String EXTRA_NEGOTIATED =
-          "org.appspot.apprtc.NEGOTIATED";
-  public static final String EXTRA_ID =
-          "org.appspot.apprtc.ID";
+  public static final String EXTRA_DATA_CHANNEL_ENABLED = "org.appspot.apprtc.DATA_CHANNEL_ENABLED";
+  public static final String EXTRA_ORDERED = "org.appspot.apprtc.ORDERED";
+  public static final String EXTRA_MAX_RETRANSMITS_MS = "org.appspot.apprtc.MAX_RETRANSMITS_MS";
+  public static final String EXTRA_MAX_RETRANSMITS = "org.appspot.apprtc.MAX_RETRANSMITS";
+  public static final String EXTRA_PROTOCOL = "org.appspot.apprtc.PROTOCOL";
+  public static final String EXTRA_NEGOTIATED = "org.appspot.apprtc.NEGOTIATED";
+  public static final String EXTRA_ID = "org.appspot.apprtc.ID";
 
   private static final String TAG = "CallRTCClient";
 
@@ -260,13 +253,10 @@ public class CallActivity extends Activity implements AppRTCClient.SignalingEven
     boolean tracing = intent.getBooleanExtra(EXTRA_TRACING, false);
     DataChannelParameters dataChannelParameters = null;
     if (intent.getBooleanExtra(EXTRA_DATA_CHANNEL_ENABLED, true)) {
-      dataChannelParameters = new DataChannelParameters(
-              intent.getBooleanExtra(EXTRA_ORDERED, true),
-              intent.getIntExtra(EXTRA_MAX_RETRANSMITS_MS, -1),
-              intent.getIntExtra(EXTRA_MAX_RETRANSMITS, -1),
-              intent.getStringExtra(EXTRA_PROTOCOL),
-              intent.getBooleanExtra(EXTRA_NEGOTIATED, false),
-              intent.getIntExtra(EXTRA_ID, -1));
+      dataChannelParameters = new DataChannelParameters(intent.getBooleanExtra(EXTRA_ORDERED, true),
+          intent.getIntExtra(EXTRA_MAX_RETRANSMITS_MS, -1),
+          intent.getIntExtra(EXTRA_MAX_RETRANSMITS, -1), intent.getStringExtra(EXTRA_PROTOCOL),
+          intent.getBooleanExtra(EXTRA_NEGOTIATED, false), intent.getIntExtra(EXTRA_ID, -1));
     }
     peerConnectionParameters =
         new PeerConnectionParameters(intent.getBooleanExtra(EXTRA_VIDEO_CALL, true), loopback,

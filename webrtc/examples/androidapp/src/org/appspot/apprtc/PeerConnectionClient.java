@@ -147,9 +147,8 @@ public class PeerConnectionClient {
     public final boolean negotiated;
     public final int id;
 
-    public DataChannelParameters(
-            boolean ordered, int maxRetransmitTimeMs, int maxRetransmits, String protocol,
-            boolean negotiated, int id) {
+    public DataChannelParameters(boolean ordered, int maxRetransmitTimeMs, int maxRetransmits,
+        String protocol, boolean negotiated, int id) {
       this.ordered = ordered;
       this.maxRetransmitTimeMs = maxRetransmitTimeMs;
       this.maxRetransmits = maxRetransmits;
@@ -188,10 +187,10 @@ public class PeerConnectionClient {
         boolean videoCodecHwAcceleration, int audioStartBitrate, String audioCodec,
         boolean noAudioProcessing, boolean aecDump, boolean useOpenSLES, boolean disableBuiltInAEC,
         boolean disableBuiltInAGC, boolean disableBuiltInNS, boolean enableLevelControl) {
-      this(videoCallEnabled, loopback, tracing, videoWidth, videoHeight, videoFps,
-      videoMaxBitrate, videoCodec, videoCodecHwAcceleration, audioStartBitrate,
-      audioCodec, noAudioProcessing, aecDump, useOpenSLES, disableBuiltInAEC, disableBuiltInAGC,
-      disableBuiltInNS, enableLevelControl, null);
+      this(videoCallEnabled, loopback, tracing, videoWidth, videoHeight, videoFps, videoMaxBitrate,
+          videoCodec, videoCodecHwAcceleration, audioStartBitrate, audioCodec, noAudioProcessing,
+          aecDump, useOpenSLES, disableBuiltInAEC, disableBuiltInAGC, disableBuiltInNS,
+          enableLevelControl, null);
     }
 
     public PeerConnectionParameters(boolean videoCallEnabled, boolean loopback, boolean tracing,
@@ -1147,14 +1146,12 @@ public class PeerConnectionClient {
 
       dc.registerObserver(new DataChannel.Observer() {
         public void onBufferedAmountChange(long previousAmount) {
-          Log.d(TAG,
-                  "Data channel buffered amount changed: " + dc.label() + ": " + dc.state());
+          Log.d(TAG, "Data channel buffered amount changed: " + dc.label() + ": " + dc.state());
         }
 
         @Override
         public void onStateChange() {
-          Log.d(TAG,
-                  "Data channel state changed: " + dc.label() + ": " + dc.state());
+          Log.d(TAG, "Data channel state changed: " + dc.label() + ": " + dc.state());
         }
 
         @Override
@@ -1164,17 +1161,10 @@ public class PeerConnectionClient {
             return;
           }
           ByteBuffer data = buffer.data;
-          final byte[] bytes = new byte[ data.capacity() ];
+          final byte[] bytes = new byte[data.capacity()];
           data.get(bytes);
-          Runnable command = new Runnable() {
-            @Override
-            public void run() {
-              // Get DC message as String.
-              String strData = new String(bytes);
-              Log.d(TAG, "Got msg: " + strData + " over " + dc);
-            }
-          };
-          executor.execute(command);
+          String strData = new String(bytes);
+          Log.d(TAG, "Got msg: " + strData + " over " + dc);
         }
       });
     }

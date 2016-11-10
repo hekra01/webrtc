@@ -86,10 +86,6 @@ public class SettingsActivity extends Activity implements OnSharedPreferenceChan
     keyprefEnableLevelControl = getString(R.string.pref_enable_level_control_key);
     keyprefSpeakerphone = getString(R.string.pref_speakerphone_key);
 
-    keyPrefRoomServerUrl = getString(R.string.pref_room_server_url_key);
-    keyPrefDisplayHud = getString(R.string.pref_displayhud_key);
-    keyPrefTracing = getString(R.string.pref_tracing_key);
-
     keyprefEnableDataChannel = getString(R.string.pref_enable_datachannel_key);
     keyprefOrdered = getString(R.string.pref_ordered_key);
     keyprefMaxRetransmitTimeMs = getString(R.string.pref_max_retransmit_time_ms_key);
@@ -97,6 +93,10 @@ public class SettingsActivity extends Activity implements OnSharedPreferenceChan
     keyprefDataProtocol = getString(R.string.pref_data_protocol_key);
     keyprefNegotiated = getString(R.string.pref_negotiated_key);
     keyprefDataId = getString(R.string.pref_data_id_key);
+
+    keyPrefRoomServerUrl = getString(R.string.pref_room_server_url_key);
+    keyPrefDisplayHud = getString(R.string.pref_displayhud_key);
+    keyPrefTracing = getString(R.string.pref_tracing_key);
 
     // Display the fragment as the main content.
     settingsFragment = new SettingsFragment();
@@ -138,15 +138,15 @@ public class SettingsActivity extends Activity implements OnSharedPreferenceChan
     updateSummaryB(sharedPreferences, keyprefEnableLevelControl);
     updateSummaryList(sharedPreferences, keyprefSpeakerphone);
 
-    updateSummary(sharedPreferences, keyPrefRoomServerUrl);
-    updateSummaryB(sharedPreferences, keyPrefDisplayHud);
-    updateSummaryB(sharedPreferences, keyPrefTracing);
     updateSummaryB(sharedPreferences, keyprefEnableDataChannel);
-
     updateSummary(sharedPreferences, keyprefMaxRetransmits);
     updateSummary(sharedPreferences, keyprefMaxRetransmitTimeMs);
     updateSummary(sharedPreferences, keyprefDataId);
     updateSummary(sharedPreferences, keyprefDataProtocol);
+
+    updateSummary(sharedPreferences, keyPrefRoomServerUrl);
+    updateSummaryB(sharedPreferences, keyPrefDisplayHud);
+    updateSummaryB(sharedPreferences, keyPrefTracing);
 
     if (!Camera2Enumerator.isSupported(this)) {
       Preference camera2Preference = settingsFragment.findPreference(keyprefCamera2);
