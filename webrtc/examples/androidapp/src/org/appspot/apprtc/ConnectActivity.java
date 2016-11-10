@@ -293,6 +293,21 @@ public class ConnectActivity extends Activity {
     }
   }
 
+  /**
+   * Get a value from the shared preference or from the intent, if it does not
+   * exist the default is used.
+   */
+  private int sharedPrefGetInteger(
+      int attributeId, String intentName, int defaultId, boolean useFromIntent) {
+    int defaultValue = Integer.parseInt(getString(defaultId));
+    if (useFromIntent) {
+      return getIntent().getIntExtra(intentName, defaultValue);
+    } else {
+      String attributeName = getString(attributeId);
+      return sharedPref.getInt(attributeName, defaultValue);
+    }
+  }
+
   private void connectToRoom(String roomId, boolean commandLineRun, boolean loopback,
       boolean useValuesFromIntent, int runTimeMs) {
     this.commandLineRun = commandLineRun;
@@ -451,14 +466,14 @@ public class ConnectActivity extends Activity {
         R.string.pref_ordered_default, useValuesFromIntent);
     boolean negotiated = sharedPrefGetBoolean(R.string.pref_negotiated_key,
         CallActivity.EXTRA_NEGOTIATED, R.string.pref_negotiated_default, useValuesFromIntent);
-    int maxRetrMs = Integer.parseInt(sharedPrefGetString(R.string.pref_max_retransmit_time_ms_key,
+    int maxRetrMs = sharedPrefGetInteger(R.string.pref_max_retransmit_time_ms_key,
         CallActivity.EXTRA_MAX_RETRANSMITS_MS, R.string.pref_max_retransmit_time_ms_default,
-        useValuesFromIntent));
-    int maxRetr = Integer.parseInt(
-        sharedPrefGetString(R.string.pref_max_retransmits_key, CallActivity.EXTRA_MAX_RETRANSMITS,
-            R.string.pref_max_retransmits_default, useValuesFromIntent));
-    int id = Integer.parseInt(sharedPrefGetString(R.string.pref_data_id_key, CallActivity.EXTRA_ID,
-        R.string.pref_data_id_default, useValuesFromIntent));
+        useValuesFromIntent);
+    int maxRetr =
+        sharedPrefGetInteger(R.string.pref_max_retransmits_key, CallActivity.EXTRA_MAX_RETRANSMITS,
+            R.string.pref_max_retransmits_default, useValuesFromIntent);
+    int id = sharedPrefGetInteger(R.string.pref_data_id_key, CallActivity.EXTRA_ID,
+        R.string.pref_data_id_default, useValuesFromIntent);
     String protocol = sharedPrefGetString(R.string.pref_data_protocol_key,
         CallActivity.EXTRA_PROTOCOL, R.string.pref_data_protocol_default, useValuesFromIntent);
 
