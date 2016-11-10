@@ -188,7 +188,7 @@ public class PeerConnectionClient {
         boolean videoCodecHwAcceleration, int audioStartBitrate, String audioCodec,
         boolean noAudioProcessing, boolean aecDump, boolean useOpenSLES, boolean disableBuiltInAEC,
         boolean disableBuiltInAGC, boolean disableBuiltInNS, boolean enableLevelControl) {
-      this(videoCallEnabled, loopback, tracing, useCamera2, videoWidth, videoHeight, videoFps,
+      this(videoCallEnabled, loopback, tracing, videoWidth, videoHeight, videoFps,
       videoMaxBitrate, videoCodec, videoCodecHwAcceleration, audioStartBitrate,
       audioCodec, noAudioProcessing, aecDump, useOpenSLES, disableBuiltInAEC, disableBuiltInAGC,
       disableBuiltInNS, enableLevelControl, null);
@@ -605,7 +605,6 @@ public class PeerConnectionClient {
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
-      videoCapturerStopped = true;
       videoCapturer.dispose();
       videoCapturer = null;
     }
@@ -1141,13 +1140,13 @@ public class PeerConnectionClient {
 
     @Override
     public void onDataChannel(final DataChannel dc) {
-      Log.d(TAG, "NEW Data channel " + dc.label());
+      Log.d(TAG, "New Data channel " + dc.label());
 
       if (!dataChannelEnabled)
         return;
 
       dc.registerObserver(new DataChannel.Observer() {
-        public void onBufferedAmountChange(long var1){
+        public void onBufferedAmountChange(long previousAmount) {
           Log.d(TAG,
                   "Data channel buffered amount changed: " + dc.label() + ": " + dc.state());
         }
