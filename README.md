@@ -1,3 +1,8 @@
+The pristine WebRTC origin is:
+
+* svn rev 14827
+* git https://chromium.googlesource.com/external/webrtc/+/3e9a53760101a5b14d771ee1152b2988685d630e
+
 **WebRTC is a free, open software project** that provides browsers and mobile
 applications with Real-Time Communications (RTC) capabilities via simple APIs.
 The WebRTC components have been optimized to best serve this purpose.
